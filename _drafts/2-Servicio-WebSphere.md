@@ -39,18 +39,24 @@ Abrimos el Rational Software Archtect, en adelante RSA
 nos aparece una ventana para configurar el WAS. Para esta
 practica vamos a usar WAS 9 y asi que no necesitamos WAS 8
 
-![Imagen](/img/Servicio-web-hola-mundo-en-WebSphere/01-01-dar-alta-servidor-WAS9.png)
+![Imagen](/img/Servicio-WebSphere/01-01-dar-alta-servidor-WAS9.png)
 
 En la siguiente pantalla desmarcamos e
 
-![Imagen](/img/Servicio-web-hola-mundo-en-WebSphere/01-02-dar-alta-servidor-WAS9.png)
-
-
-
-
+![Imagen](/img/Servicio-WebSphere/01-02-dar-alta-servidor-WAS9.png)
 Proyecto web dinamico
 
-
+![Imagen](/img/Servicio-WebSphere/02-01-rsa-perpectiva-de-java-ee.png)
+![Imagen](/img/Servicio-WebSphere/02-02-rsa-perpectiva-de-java-ee.png)
+![Imagen](/img/Servicio-WebSphere/03-01-crear-perfil.png)
+![Imagen](/img/Servicio-WebSphere/04-01-crear-proyecto-web.png)
+![Imagen](/img/Servicio-WebSphere/04-02-crear-proyecto-web.png)
+![Imagen](/img/Servicio-WebSphere/04-03-crear-proyecto-web.png)
+![Imagen](/img/Servicio-WebSphere/04-04-crear-proyecto-web.png)
+![Imagen](/img/Servicio-WebSphere/05-01-iniciar-servidor.png)
+![Imagen](/img/Servicio-WebSphere/05-02-iniciar-servidor.png)
+![Imagen](/img/Servicio-WebSphere/05-03-iniciar-servidor.png)
+![Imagen](/img/Servicio-WebSphere/05-04-iniciar-servidor.png)
 
 
 
