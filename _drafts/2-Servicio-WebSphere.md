@@ -37,7 +37,7 @@ la etiqueta @WebService para que sea un servicio web.
 
 Abrimos el Rational Software Archtect, en adelante RSA
 nos aparece una ventana para configurar el WAS. Para esta
-practica vamos a usar WAS 9 y asi que no necesitamos WAS 8
+practica vamos a usar WAS 9 y asi que no necesitamos WAS 8.5
 
 ![Imagen](/img/Servicio-WebSphere/01-01-dar-alta-servidor-WAS9.png)
 
