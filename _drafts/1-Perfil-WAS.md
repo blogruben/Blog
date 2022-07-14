@@ -28,7 +28,6 @@ Si no se muestra la vista Servidores en el panel inferior, podemos abrirlo en
 
 Para abrir la ventana de gestion de perfiles de WAS, 
 primero abrimos las preferencias *Menu > Ventana > Preferencias*
-
 ![Imagen](/img/Perfil-WAS/01-01-abrir-gestion-de-perfil.png)
 
 En la ventana de preferencias, vamos a la opcion de *Servidor > WebShere Application.*
@@ -38,71 +37,82 @@ En la ventana tenemos dos tablas, en la primera llamada *Gestión de perfiles lo
 En la segunda tabla tenemos *Pperfiles de WebSphere Aplication Server* vemos los perfiles que hemos creado de cada servidor que no tenemos ninguno.
 
 Hacemos click en *Ejecutar herramienta de gestión de perfiles* para crear un perfil para el servidor de WAS9 que tenemos seleccionado.
-
-
 ![Imagen](/img/Perfil-WAS/01-02-abrir-gestion-de-perfil.png)
 
 Puede ser que en el menu lateral, no aparezca la opcion de *Servidores*. Eso se debe a que tenemos una perpectiva que no tiene habilitado los servidores. Para poner la perpectiva de Java EE y ver la opcion de servidores, hacer click en el boton que esta arriba a la derecha para abrir perpectiva y seleccionar Java EE
-
 ![Imagen](/img/Perfil-WAS/01-03-abrir-gestion-de-perfil.png)
 
 Se nos muestras los perfiles existentes, no tenemos ninguno y le damos al boton de *Crear...*
-
 ![Imagen](/img/Perfil-WAS/01-04-abrir-gestion-de-perfil.png)
 
-
-Tenemos dos maneras de
-
-
+Tenemos dos maneras de gestionar la configuracion del servidor. Si seleccionamos *Gestión* podemos manejar al configuracion de varios servidor desde un mismo agente administrativo. Con la opcion de *Servidor de aplicaciones* el servidor que creemos se le asocia una consola administrativa que es un panel donde se configuran los recursos. Teniendo en cuenta que estamso en un entorno de serrollo, solo necesitamos administrar los recursos de este perfil was por lo que selecionamos *Servidor de aplicaciones* 
 ![Imagen](/img/Perfil-WAS/02-01-crear-perfil.png)
 
-
+Ahora selecionamos entre la *Creación de perfiles típico* en la que se ponen valores por defecto o en la *Creación de perfiles avanzada* en la que se permite configurar más parametros. Seleccionamos la opcion de *Creación de perfiles avanzada* 
 ![Imagen](/img/Perfil-WAS/02-02-crear-perfil.png)
 
-
+En la ventana de *Despliegue de aplicaciones opcionales* seleccionamos la consola administra muy importante para gestionar los recursos de WAS y la herramienta de verificacion de la instalacion. La opcion de *Desplegar la aplicacion por omisión* no es necesario, esto instala una aplicaciones a modo de ejemplo como Hello Snoop HitCount
 ![Imagen](/img/Perfil-WAS/02-03-crear-perfil.png)
 
+Por defecto el perfil se llama *AppSrv01*. Es recomentable que el directorio se llame igual que el perfil. Esa decir si queremos llamar al perfil *hola mundo* sería:
+- Nombre de perfil: HolaMundo
+- Directorio del perfil: C:\IBM\WebSphere\AppServer90\profiles\HolaMundo
 
+En el *Valor de ajuste de rendimiento de ejecucíon de servidor* podemos Desarrollo para que el servidor consuma menos recursos y sea más ligero para el desarrollo.
 ![Imagen](/img/Perfil-WAS/02-04-crear-perfil.png)
 
-
+Nombre de nodo: xxxxNode01
+Nombre de servidor: server1
+Nombre de host: xxxx.company.es
 ![Imagen](/img/Perfil-WAS/02-05-crear-perfil.png)
 
-
+Para trabajar, en local no es necesario activar la seguridad administrativa que se refiere a poner una contraseña al panel de control del WAS.
 ![Imagen](/img/Perfil-WAS/02-06-crear-perfil.png)
 
-
+Usamos un certificado por defecto.
 ![Imagen](/img/Perfil-WAS/02-07-crear-perfil.png)
 
-
+Dejamos los valores por defecto del cerficado de seguridad.
 ![Imagen](/img/Perfil-WAS/02-08-crear-perfil.png)
 
-
+El puerto al se que tenemos que prestar más atención es el tranporte HTTP, si creamos un servicio o un servlet, este sera despachado por *http://localhost:9080/*
 ![Imagen](/img/Perfil-WAS/02-09-crear-perfil.png)
 
+La [definición de servidor web](https://www.ibm.com/docs/es/was/9.0.5?topic=console-web-server-definition) ayuda a la gestion del servidor en producción, por lo tanto no la ponemos.
 
 ![Imagen](/img/Perfil-WAS/02-10-crear-perfil.png)
 
-
+Se genera el perfil.
 ![Imagen](/img/Perfil-WAS/02-11-crear-perfil.png)
 
 
 ![Imagen](/img/Perfil-WAS/02-12-crear-perfil.png)
 
+Ya podemos ver el perfil que acabamos de crear.
+![Imagen](/img/Perfil-WAS/03-01-iniciar-servidor-en-rsa.png)
 
-![Imagen](/img/Perfil-WAS/03-01-iniciar-servidor.png)
+En el RSA, en la vista de servidores no se muestra el perfil que hemos creado. Se debe añadir al RSA para que lo encuentre. Click derecho sobre el fondo blanod de la vista de servidores y vamos a *Nuevo > Servidor*
+![Imagen](/img/Perfil-WAS/03-02-iniciar-servidor-en-rsa.png)
+
+Seleccionamos el tipo de servidor IBM y la version *WebSphere Application traditional V9.0* 
+![Imagen](/img/Perfil-WAS/03-03-iniciar-servidor-en-rsa.png)
+
+Aquí seleccionamos el nombre del perfil que hemos creado *AppSrv01* y finalizamos.
+![Imagen](/img/Perfil-WAS/03-04-iniciar-servidor-en-rsa.png)
+
+Ya se muestra el servidor, hacemos doble click sobre el servidor, y en el panel de control, cambiamos el nombre de servidor  en la seccion de informacion general.
+![Imagen](/img/Perfil-WAS/03-05-iniciar-servidor-en-rsa.png)
+
+En la sección del servidor, ponemos seleccionar la opcion *"Terminar servidor al concluir el entorno de trabajo"*, es interesante porque aveces cerramos el RSA sin darnos cuenta que tenemos el servidor arrancado y se queda funcionando en segundo plano.
+![Imagen](/img/Perfil-WAS/03-06-iniciar-servidor-en-rsa.png)
 
 
-![Imagen](/img/Perfil-WAS/03-02-iniciar-servidor.png)
+![Imagen](/img/Perfil-WAS/04-01-iniciar-servidor.png)
+
+![Imagen](/img/Perfil-WAS/04-02-iniciar-servidor.png)
+
+![Imagen](/img/Perfil-WAS/04-03-iniciar-servidor.png)
+
+![Imagen](/img/Perfil-WAS/04-04-iniciar-servidor.png)
 
 
-![Imagen](/img/Perfil-WAS/03-03-iniciar-servidor.png)
-
-
-![Imagen](/img/Perfil-WAS/03-04-iniciar-servidor.png)
-
-
-![Imagen](/img/Perfil-WAS/03-05-iniciar-servidor.png)
-
-
-![Imagen](/img/Perfil-WAS/03-06-iniciar-servidor.png)

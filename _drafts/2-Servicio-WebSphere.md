@@ -53,6 +53,9 @@ Proyecto web dinamico
 ![Imagen](/img/Servicio-WebSphere/04-02-crear-proyecto-web.png)
 ![Imagen](/img/Servicio-WebSphere/04-03-crear-proyecto-web.png)
 ![Imagen](/img/Servicio-WebSphere/04-04-crear-proyecto-web.png)
+
+xxxxxx
+
 ![Imagen](/img/Servicio-WebSphere/05-01-iniciar-servidor.png)
 ![Imagen](/img/Servicio-WebSphere/05-02-iniciar-servidor.png)
 ![Imagen](/img/Servicio-WebSphere/05-03-iniciar-servidor.png)

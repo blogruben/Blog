@@ -25,6 +25,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   interesado en instalar cosas o programar cosas este es tu sitio.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+permalink: /:title #by default is /:categories/:year/:month/:day/:title:output_ext
 twitter_username: 
 github_username:  Ruben-R-C
 
