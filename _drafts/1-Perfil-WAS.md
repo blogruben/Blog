@@ -51,7 +51,7 @@ Se nos muestras los perfiles existentes, no tenemos ninguno y le damos al boton 
 ![Imagen](/img/Perfil-WAS/01-04-abrir-gestion-de-perfil.png)
 
 
-Tenemos dos maneras 
+Tenemos dos maneras de
 
 
 ![Imagen](/img/Perfil-WAS/02-01-crear-perfil.png)
