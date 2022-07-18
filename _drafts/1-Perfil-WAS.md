@@ -24,7 +24,17 @@ En esta practica para [crear un perfil en WAS 9](https://www.ibm.com/docs/es/was
 
 # 1. Abrir la ventana de Gestión de perfil
 
-Abrimos el RSA, y vemos que en la vista de servidores dice que no hay servidores disponibles, eso es porque no hemos creado ningún perfil. 
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Cuando abrimos el RSA, a parte de preguntarmos sobre el directorio del work space, tenemos que configurar el WAS, nos aparece para añadir la version 9 y la 8.5
+![Dar de alta servidor WAS 1](/img/00-01-dar-alta-servidor-WAS9.png)
+
+![Dar de alta servidor WAS 2](/img/00-02-dar-alta-servidor-WAS9.png)
+
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+En la vista de servidores dice que no hay servidores disponibles, eso es porque no hemos creado ningún perfil. 
 Si no se muestra la vista Servidores en el panel inferior, podemos abrirlo en 
 *Barra Menu > Mostrar Vista > Servidores*
 
