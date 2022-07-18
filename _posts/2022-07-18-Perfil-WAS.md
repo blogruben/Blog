@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Crear un perfil en WAS 9"
-date:   2000-01-01
+date:   2022-07-18
 categories: Instalacion WAS
 ---
 
