@@ -7,11 +7,13 @@ categories: Instalacion WAS
 
 # Introducción
 
-WebSphere Application Server en adelante [WAS](https://www.ibm.com/es-es/cloud/websphere-application-server), es una servidor de IBM enfocado en el sector empresarial donde se facilita el manejo de grandes clustes o aplicaciones pesadas.
+WebSphere Application Server en adelante [WAS](https://www.ibm.com/es-es/cloud/websphere-application-server), es una servidor de IBM enfocado en el sector empresarial donde se facilita el manejo de grandes clusters o aplicaciones pesadas.
 
-Para desarrollar una servicio o una aplicacion web enfocado a un servidor WAS en tu ordenador local se usa el [RSA](https://www.ibm.com/products/rational-software-architect-designer) que es una evolución de Eclipse para adaptarse a los productos de IBM. Y antes de poder crear un proyecto web debemos crear un perfil de WAS.
+Para desarrollar un servicio o una aplicacion web enfocado a un servidor WAS en tu ordenador local, se usa el [RSA](https://www.ibm.com/products/rational-software-architect-designer) que es una evolución de Eclipse para adaptarse a los productos de IBM. 
 
-Un perfil de WAS es donde se guardan todos los recursos, las JNDI, los orígenes de datos ... es decir es todo lo necesario para que la aplicacion funcione. 
+Es importante recalcar que antes de poder crear un proyecto web, debemos crear un perfil de WAS.
+
+> Un perfil de WAS es donde se guardan todos los recursos, las JNDI, los orígenes de datos ... es decir es todo lo necesario para que la aplicacion funcione. 
 
 El hecho de tener instalado un servidor WAS en tu ordenador, no significa que puedas desplegar aplicaciones directamente hasta que se haya creado un perfil donde se puedan guardar toda la configuración.
 
