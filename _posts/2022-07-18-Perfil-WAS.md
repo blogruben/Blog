@@ -15,7 +15,7 @@ Es importante recalcar que antes de poder crear un proyecto web, debemos crear u
 
 > Un perfil de WAS es donde se guardan todos los recursos, las JNDI, los orígenes de datos ... es decir es todo lo necesario para que la aplicacion funcione. 
 
-El hecho de tener instalado un servidor WAS en tu ordenador, no significa que puedas desplegar aplicaciones directamente hasta que se haya creado un perfil donde se puedan guardar toda la configuración.
+El hecho de tener instalado WAS en tu ordenador, no significa que puedas desplegar aplicaciones directamente sobre él, es necesario un perfil donde se guarda toda la configuración necesaria.
 
 Principalmente tenemos dos versiones de WAS: *"WebSphere Liberty"* que esta enfocado a aplicaciones cloud y *"Traditional WebSphere"* que los aplicaciones se desplegan en un servidor IBM, en esta práctica instalaremos el traditional WAS.
 
