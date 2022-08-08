@@ -5,52 +5,51 @@ date:   2022-07-06
 categories: Saludos
 ---
 ## Intro
-Vamos a ver las herramientas para compilar y empaquetar archivos de java que provee JDK, y como funciona el classpath.
-Basicamente el JRE es la maquina virtual de java JVM y ciertas librerías necesarias para ejecutar las aplicaciones de Java,    
-y por otro lado el JDK esta penssado para el desarrollo, por lo que trae JRE más las herramientas necesarios como el compiladores, debuggear empaquetadores ...
-[Diagrama de JDK 8](https://docs.oracle.com/javase/8/docs/)
+Vamos a ver las herramientas para compilar y empaquetar archivos de java que provee el JDK, y como funciona el classpath.
+Basicamente el Java Runtime Environment (en adelante JRE) es la maquina virtual de java (JVM) más ciertas librerías necesarias para ejecutar las aplicaciones de Java,    
+y por otro lado el Java Development Kit (JDK) esta pensado para el desarrollo de aplicaciones, por lo que trae el JRE para ejecutar las aplicaciones más una serie de herramientas necesarias para el desarrollo como pueden ser los compiladores, debuggear empaquetadores etc.
+
 
 
 ## Requisitos
 - Windows 10 
 - JDK 8
 
-Aunque actualmente ya estamos por la version 18, la version de JDK8 aun sigue siendo muy usada,
-y para aprender como compilar el código fuente es suficiente. 
-Para ello, podemos descargarlo el [JDK de Oracle](https://www.oracle.com/java/technologies/downloads/) o el [OpenJDK](https://openjdk.org/projects/jdk8/)
-y añadir el path en Windows, en este caso.
+Aunque actualmente ya estamos por la versión 18 de Java, vamos a usar el JDK 8 que a nivel empresarial aun se sigue usando ya que tiene una licencia menos restrictiva. 
+Para ello, podemos descargarlo el [JDK de Oracle](https://www.oracle.com/java/technologies/downloads/) o el [OpenJDK](https://openjdk.org/projects/jdk8/) y añadir el path en Windows, para ello puedes encontrar muchos tutoriales en internet como por ejemplo [este](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=389:configurar-java-en-windows-variables-de-entorno-javahome-y-path-cu00610b&catid=68&Itemid=188)
 
-Comprobamos que lo tenemos instalado
+![inicar-consola](/img/Compilar-Java/01-01-inicar-consola.png)
+
+Comprobamos que tenemos instalado el JDK en Windows. Para ello, buscando "cmd" o "Símbolo del sistema" en el buscador de Windows para abrir la consola y ejecutamos ``java -version`` para saber que el path del sistema apunta a la instalación de Java.
+
+![inicar-consola](/img/Compilar-Java/01-02-inicar-consola.png)
+
+También podemos comprobamos el comando la aplicación `jar` (Java Archive Tool) que basicamente sirve para empaquetar varios archivos java.
 ```
-C:\Users\Ruben>java -version
-java version "1.8.0_202"
-Java(TM) SE Runtime Environment (build 1.8.0_202-b32)
-Java HotSpot(TM) Client VM (build 25.202-b32, mixed mode)
+C:\Users\Ruben>jar
+Sintaxis: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
+Opciones:
+    -c  crear nuevo archivo
+...
 ```
 
-Tambien comprobamos el comando `jar` para ejecutar archivos java.
-Si no lo reconoce debemos añadirlo al path
+En caso de que no encuentre la aplicacion `jar` mostrará el siguiente error.
 ```
-#jar no se reconoce porque no esta en el path
-C:\Users\Ruben>jar --help
+C:\Users\Ruben>jar
 "jar" no se reconoce como un comando interno o externo,
 programa o archivo por lotes ejecutable.
 ```
+Si no se reconoce `jar` pero si `java -version` puede ser que tu variable de entorno apunte al JRE en vez de al JDK. Puedes ver en el [diagrama de JDK 8](https://docs.oracle.com/javase/8/docs/) que el modulo "jar"
+pertenece a JDK pero no a JRE porque es una herramienta de desarrollo.
 
-
-![Imagen de la papelera del escritorio](/img/papelera.png)
-
-[Configurar Java en Windows](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=389:configurar-java-en-windows-variables-de-entorno-javahome-y-path-cu00610b&catid=68&Itemid=188)
 
 ## 1 Compilar y descompilar una clase java
 
 ### 1.1 Compilar HolaMundo
-Para ver la ayuda
-```
-jar --help
-```
 
-Creamos un archivo llamado HolaMundo.java
+
+
+Creamos un archivo llamado HolaMundo.java que contenga lo siguiente:
 ```
 public class HolaMundo {
 	public static void main(String[] args) {
