@@ -38,11 +38,13 @@ programa o archivo por lotes ejecutable.
 ```
 Si no se reconoce `jar` pero si `java -version` puede ser que tu variable de entorno apunte a el JRE en vez de al JDK. Puedes ver en el [diagrama de JDK 8](https://docs.oracle.com/javase/8/docs/) que el módulo "jar" pertenece a JDK pero no a JRE porque es una herramienta de desarrollo.
 
-# 1 Compilar y descompilar una clase java
+## 1 Compilar y descompilar una clase java
 
 ## 1.1 Compilar HolaMundo
 
 Vamos a crear un archivo java que contenga una clase que imprima "Hola mundo", luego la vamos a compilar y ejecutar desde el set de herramientas de JDK. 
+
+### Crear HolaMundo.java
 
 Primero creamos un archivo llamado HolaMundo.java que contenga lo siguiente:
 ```
@@ -58,32 +60,36 @@ Para ello podemos hacerlo gráficamente:
 3. renombralo por *HolaMundo.java*
 4. abrirlo con el blog de notas para editar el archivo java
 
+Ya que vamos a usar la consola  para esta práctica, podemos crear el archivo desde el `cmd` así:
+
 ![crear-archivo](/img/Compilar-Java/02-01-crear-archivo.png)
 
-Si prefieres la consola `cmd` seria:
 1. `more >> HolaMundo.java` para guardar lo que escribamos en el archivo
 2. Pegamos el contenido
 3. Hacemos Ctrl+C para cerrar y guardar
 
-imagen
-
-Y si estamos usando la PowerShell 
-1. 
-2. 
-3. 
-powershell -Command "Write-Host This is`na multiline`ntext"
-
-
-`n is the newline because ` is the escape character in powershell
-
-Compilamos el archivo java
+O desde la PowerShell sería de la siguiente manera:
 ```
-javac  HolaMundo.java
+$claseHolaMundo = @"
+public class HolaMundo {
+    public static void main(String[] args) {
+        System.out.println("Hola Mundo");
+    }  
+}
+"@
+ Add-Content "HolaMundo.java" $claseHolaMundo
 ```
+![crear-archivo](/img/Compilar-Java/02-02-crear-archivo.png)
 
-Ahora ejecutamos la clase
+El primer comando ``powershell``, es para iniciar este interprete desde la misma consola. 
+
+### Compilamos y ejecutamos HolaMundo
+
+Compilamos el archivo "HolaMundo.java" con el comando `javac  HolaMundo.java` que nos genera el compilado HolaMundo.class
+
+Ahora ejecutamos la clase generada
 ```
-# esto da error porque no se pone la extension class
+# esto da error porque no se pone la extensión
 java HolaMundo.class
 #Error: no se ha encontrado o cargado la clase principal 
 
@@ -92,41 +98,59 @@ java HolaMundo.class
 > Hola Mundo
 ```
 
-Lo empaquetamos
+Vemos que al ejecutarlo `java HolaMundo` se imprime la salida por consola, normalmente tenemos una clase principal que depende de otras clases por lo que no es una formas practica de ejecutarlo, necesitariamos empaquetar todos los compilados 
+
 ```
 jar cvf hola.jar HolaMundo.class
 > manifiesto agregado
 > agregando: HolaMundo.class(entrada = 422) (salida = 286)(desinfl
 ```
+Ahora nos ha empaquetado la clase en el archivo hola.jar que podria contener todas las clases necesarias y se podria ejecutar.
+
 
 #ejecutar paquete  (sin classpath en el manifest)
 ```
+java hola.jar
+> Error: no se ha encontrado o cargado la clase principal hola.jar
+
 java -cp hola.jar HolaMundo
 > Hola Mundo
 ```
+Con esto ejecutamos nuestra aplicacion empaquetada. El comando `java hola.jar` funcionaria si hubieramos definido el classpath en el manifest. El classpath le dice a java cual es la clase principal que tiene que ejecutar.
+
+Una aplicación normal tiene decenas de clases y le sería imposible a java ejecutarlo por esto es obligatorio decimos la clase principal o classpath, entonces tenemos que añadirle el classpath con el comando `java -classpath hola.jar HolaMundo` o de forma contraida `java -cp hola.jar HolaMundo`
+
 
 ## 1.2 Descompilar clase del paquete hola.jar
 
-#ver el contenido del paquete
+Podemos listar el contenido del paquete `hola.jar` que hemos creado.
+```
 jar -tf hola.jar
 > META-INF/
 > META-INF/MANIFEST.MF
 > HolaMundo.class
+```
 
+```
 #ver el manifest con un solo comando
 #-p es para imprimir por pantalla en vez de generar archivo
 unzip -p hola.jar META-INF/MANIFEST.MF
+```
 
+```
 #extraer todo en un directorio
 unzip hola.jar -d Hola
 #modificar lo que sea
 #y volvemos a compilar
 jar cvf hola.jar -C Hola/ .
+```
 
+```
 #extraer todo
 jar -xf hola.jar HolaMundo.class
 #extraer un archivo en concreto
 jar -xf hola.jar HolaMundo.class
+```
 
 descargar Java Decompiler Proyect
 y ver el contenido de HolaMundo.class
@@ -141,7 +165,7 @@ jar cvfe hola.jar HolaMundo HolaMundo.class
 java -jar hola.jar
 
 
-# 2 Modificar manifest y classpath
+## 2 Modificar manifest y classpath
 ## 2.1 Crear libreria 
 Creamos un paquete para el main class, ya que es necesario que tengo un paquete
 para definirlo en el manifest

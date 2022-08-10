@@ -6,7 +6,7 @@ categories: Instalacion WAS
 repasado: casi
 ---
 
-# Introducción
+## Introducción
 
 WebSphere Application Server en adelante [WAS](https://www.ibm.com/es-es/cloud/websphere-application-server), es una servidor de IBM enfocado en el sector empresarial donde se facilita el manejo de grandes clusters o aplicaciones pesadas.
 
@@ -23,7 +23,7 @@ Principalmente tenemos dos versiones de WAS: *"WebSphere Liberty"* que esta enfo
 En un desarrollo normal en el PC local se pueden crear varios perfiles e incluso en diferentes versiones de servidor WAS, cada uno con su propia configuración para trabajar con varias aplicaciones.
 
 
-# 1. Abrir la ventana de Gestión de perfil
+## 1. Abrir la ventana de Gestión de perfil
 
 ![Dar de alta servidor WAS 1](/img/Perfil-WAS/00-01-dar-alta-servidor-WAS9.png)
 
@@ -60,7 +60,7 @@ Puede ser que en la ventana de preferencias, no aparezca la opción de *Servidor
 
 Se nos muestras los perfiles existentes, no tenemos ninguno y le damos al boton de *Crear...*
 
-# 2. Crear perfil de WAS 9
+## 2. Crear perfil de WAS 9
 
 ![Imagen](/img/Perfil-WAS/02-01-crear-perfil.png)
 
@@ -122,7 +122,7 @@ Se genera el perfil.
 Ya podemos ver el perfil que acabamos de crear.
 
 
-# Añadimos el perfil a la vista de los servidores del RSA
+### Añadimos el perfil a la vista de los servidores del RSA
 
 ![Imagen](/img/Perfil-WAS/03-02-iniciar-servidor-en-rsa.png)
 
@@ -145,7 +145,7 @@ Ya se muestra el servidor, hacemos doble click sobre el servidor, y en el panel 
 En la sección del servidor, podemos seleccionar la opción *"Terminar servidor al concluir el entorno de trabajo"*. Esto es interesante porque a veces cerramos el RSA sin darnos cuenta que tenemos el servidor arrancado y se queda funcionando en segundo plano.
 
 
-# 3. Abrir la Consola Administrativa
+## 3. Abrir la Consola Administrativa
 
 ![Imagen](/img/Perfil-WAS/04-01-iniciar-servidor.png)
 
@@ -176,7 +176,7 @@ de tranporte HTTP"* es el 9080, entramos en la url  **http://localhost:9080/ibm/
 Para ver *"el puerto de HTTP"*, hacemos click derecho sobre el servidor, y le damos a propiedades.
 
 
-# 4. Ver logs
+## 4. Ver logs
 
 ![Imagen](/img/Perfil-WAS/05-01-ver-logs.png)
 
