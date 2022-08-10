@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Compilar con java usando classpath"
+title:  "Compilar con java"
 date:   2022-07-06
 categories: Saludos
 ---
@@ -131,11 +131,26 @@ jar -tf hola.jar
 > HolaMundo.class
 ```
 
+Vemos que aparte del fichero HolaMundo.class tenemos una carpeta META_INFO con el MANIFEST.MF que no define aspectos del JAR como la clase principal, el nombre de aplicación, autor, número de version etc. 
+
 ```
-#ver el manifest con un solo comando
-#-p es para imprimir por pantalla en vez de generar archivo
+#-p es para imprimir por pantalla en vez de generar un archivo
 unzip -p hola.jar META-INF/MANIFEST.MF
+> Manifest-Version: 1.0
+> Created-By: 1.8.0_331 (Oracle Corporation)
 ```
+Vemos el contenido del manifest y solo tiene informacion por defecto. 
+
+Manifest-Version: 1.0
+Implementation-Title: HolaMundo
+Implementation-Version: 01.00.00
+Implementation-Build: 22376506-0748
+
+Manifest-Version: 1.0
+Built-By: baeldung
+Created-By: 11.0.3 (AdoptOpenJDK)
+
+Class-Path: MyUtils.jar
 
 ```
 #extraer todo en un directorio
