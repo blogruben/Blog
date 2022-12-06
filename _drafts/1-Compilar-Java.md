@@ -131,7 +131,7 @@ jar -tf hola.jar
 > HolaMundo.class
 ```
 
-Vemos que aparte del fichero HolaMundo.class tenemos una carpeta META_INFO con el MANIFEST.MF que no define aspectos del JAR como la clase principal, el nombre de aplicación, autor, número de version etc. 
+Vemos que aparte del fichero HolaMundo.class tenemos una carpeta META_INFO con el MANIFEST.MF donde se define aspectos del JAR como la clase principal, el nombre de aplicación, autor, número de version etc. 
 
 ```
 #-p es para imprimir por pantalla en vez de generar un archivo
@@ -139,53 +139,61 @@ unzip -p hola.jar META-INF/MANIFEST.MF
 > Manifest-Version: 1.0
 > Created-By: 1.8.0_331 (Oracle Corporation)
 ```
-Vemos el contenido del manifest y solo tiene informacion por defecto. 
+Vemos el contenido del manifest y solo tiene información por defecto. 
 
+Podemos añadir más información como se muestra a continuación
+```
 Manifest-Version: 1.0
+Built-By: blogruben
+Created-By: ruben
 Implementation-Title: HolaMundo
 Implementation-Version: 01.00.00
-Implementation-Build: 22376506-0748
+Implementation-Build: 00000000-0000
+Main-Class: com.example.MainClass
+Class-Path: lib/lib1.jar lib/lib2.jar
+```
 
-Manifest-Version: 1.0
-Built-By: baeldung
-Created-By: 11.0.3 (AdoptOpenJDK)
-
-Class-Path: MyUtils.jar
-
+Aquí destacaría, los propiedades de Main-Class y el Class-Path si en nuestro ejemplo anterior añadimos `Main-Class: HolaMundo` y `Class-Path: mariadb-java-client-3.0.8.jar` solo tendríamos que ejecutar `java hola.jar` y cogeria el classpath y el main class definidos en el manifest.
 ```
 #extraer todo en un directorio
 unzip hola.jar -d Hola
-#modificar lo que sea
-#y volvemos a compilar
+#volvemos a compilar
 jar cvf hola.jar -C Hola/ .
 ```
+Podemos extraer un archivo jar usando unzip
+ya que es realidad es un comprimido como un zip
 
 ```
 #extraer todo
-jar -xf hola.jar HolaMundo.class
+jar -xf hola.jar 
 #extraer un archivo en concreto
 jar -xf hola.jar HolaMundo.class
 ```
+Con la herramienta `jar` que provee el JDK, podemos extraer 
+todos los archivos o seleccionar algunos en concreto
 
-descargar Java Decompiler Proyect
-y ver el contenido de HolaMundo.class
+Descargar Java Decompiler Proyect
+y ver el contenido del binario HolaMundo.class
 http://java-decompiler.github.io/
 
 ## 1.3 Definir clase principal
-
+```
 #creamos el paquete diciendo que holaMundo es la clase principal
 jar cvfe hola.jar HolaMundo HolaMundo.class
 
 #ya podemos ejecutar sin espeificar el classpath
 java -jar hola.jar
+```
+Podemos definir directamente la clase principal, cuando generamos el paquete jar, por lo que no tenemos que modificar el manifest mas tarde.
 
 
 ## 2 Modificar manifest y classpath
 ## 2.1 Crear libreria 
-Creamos un paquete para el main class, ya que es necesario que tengo un paquete
+Vamos a hacer el ejemplo un poco mas realista, para ellos vamos a creamos un paquete para el main class.
 para definirlo en el manifest
 
-Creamos org/blogruben/prueba/tools/Impresion.java para imprimir
+Creamos un ficherola en siguiente ruta de esta manera 
+org/blogruben/prueba/tools/Impresion.java 
 ```
 package org.blogruben.prueba.tools;
 
@@ -195,13 +203,16 @@ public class Impresion {
     }
 }
 ```
-Ruben
+Y generamos el paquete impresion.jar
 
+```
 #compilamos
 javac -d lib  com/blogruben/prueba/tools/Impresion.java
 
 #empaquetamos
 jar cvf impresion.jar Impresion.class
+```
+
 
 ## 2.1 Compilar clases con sus paquetes
 
