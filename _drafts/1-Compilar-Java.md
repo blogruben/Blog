@@ -1,20 +1,20 @@
 ---
 layout: post
 title:  "Compilar con java"
-date:   2022-07-06
+date:   2022-12-06
 categories: Saludos
 ---
 ## Intro
 Vamos a ver las herramientas para compilar y empaquetar archivos de java que provee el JDK, y como funciona el classpath.
-Vamos aprender a compilar nuestras aplicaciones en Java desde la consola de manera básica sin necesidad de usar ningún IDE ni ningún gestor de librerías, cuando nuestro desarrollo va ganado en complejidad este metodo se vuelve impractible, sin embarjo es un buen ejercicio para conocer el funcionamiento de las herramientas de dessarrollo de Java a bajo nivel.
+Vamos aprender a compilar nuestras aplicaciones en Java desde la consola de manera básica sin necesidad de usar ningún IDE ni ningún gestor de librerías, cuando nuestro desarrollo va ganado en complejidad este metodo se vuelve impracticable, sin embarjo es un buen ejercicio para conocer el funcionamiento de las herramientas de dessarrollo de Java a bajo nivel.
 
-Básicamente el Java Runtime Environment (en adelante JRE) es la maquina virtual de java (JVM) más ciertas librerías necesarias para ejecutar las aplicaciones de Java,    
-y por otro lado el Java Development Kit (JDK) esta pensado para el desarrollo de aplicaciones, por lo que trae el JRE para ejecutar las aplicaciones más una serie de herramientas necesarias para el desarrollo como pueden ser los compiladores, debuggear empaquetadores etc.
+Básicamente el Java Runtime Environment (en adelante JRE) es la máquina virtual de java (JVM) más ciertas librerías necesarias para ejecutar las aplicaciones de Java.    
+Por otro lado el Java Development Kit (JDK) esta pensado para el desarrollo de aplicaciones, por lo que trae el JRE para ejecutar las aplicaciones más una serie de herramientas necesarias para el desarrollo como pueden ser los compiladores, debuggear empaquetadores etc.
 
 
 ## Requisitos
 Aunque actualmente ya estamos por la versión 18 de Java, vamos a usar el JDK 8 que a nivel empresarial aún se sigue usando ya que Oracle mantiene una licencia menos restrictiva. 
-Para ello, podemos descargarlo el [JDK de Oracle](https://www.oracle.com/java/technologies/downloads/) o el [OpenJDK](https://openjdk.org/projects/jdk8/) y añadir el path en Windows, para ello puedes encontrar muchos tutoriales en internet como por ejemplo [este](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=389:configurar-java-en-windows-variables-de-entorno-javahome-y-path-cu00610b&catid=68&Itemid=188)
+Para ello, podemos descargar el [JDK de Oracle](https://www.oracle.com/java/technologies/downloads/) o el [OpenJDK](https://openjdk.org/projects/jdk8/) y añadirlo al path en Windows, para ello puedes encontrar muchos tutoriales en internet como por ejemplo [este](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=389:configurar-java-en-windows-variables-de-entorno-javahome-y-path-cu00610b&catid=68&Itemid=188)
 
 ![inicar-consola](/img/Compilar-Java/01-01-inicar-consola.png)
 
@@ -28,7 +28,6 @@ C:\Users\Ruben>jar
 Sintaxis: jar {ctxui}[vfmn0PMe] [jar-file] [manifest-file] [entry-point] [-C dir] files ...
 Opciones:
     -c  crear nuevo archivo
-...
 ```
 Se muestra la ayuda del comando, en caso de que no se encuentre la aplicación `jar` mostrará el siguiente error.
 ```
@@ -36,7 +35,7 @@ C:\Users\Ruben>jar
 "jar" no se reconoce como un comando interno o externo,
 programa o archivo por lotes ejecutable.
 ```
-Si no se reconoce `jar` pero si `java -version` puede ser que tu variable de entorno apunte a el JRE en vez de al JDK. Puedes ver en el [diagrama de JDK 8](https://docs.oracle.com/javase/8/docs/) que el módulo "jar" pertenece a JDK pero no a JRE porque es una herramienta de desarrollo.
+Si no se reconoce `jar` pero si `java -version` puede ser que tu variable de entorno apunte a un JRE en vez de al JDK. Puedes ver en el [diagrama de JDK 8](https://docs.oracle.com/javase/8/docs/) que el módulo "jar" pertenece a el JDK pero no a el JRE porque es una herramienta de desarrollo.
 
 ## 1 Compilar y descompilar una clase java
 
@@ -81,24 +80,23 @@ public class HolaMundo {
 ```
 ![crear-archivo](/img/Compilar-Java/02-02-crear-archivo.png)
 
-El primer comando ``powershell``, es para iniciar este interprete desde la misma consola. 
+Nota: Podemos acceder al interprete de powershell desde la misma cmd  escribiendo comando el ``powershell``.
 
 ### Compilamos y ejecutamos HolaMundo
 
-Compilamos el archivo "HolaMundo.java" con el comando `javac  HolaMundo.java` que nos genera el compilado HolaMundo.class
+Compilamos el archivo "HolaMundo.java" con el comando `javac  HolaMundo.java` que nos genera el archivo compilado HolaMundo.class
 
 Ahora ejecutamos la clase generada
 ```
-# esto da error porque no se pone la extensión
+java HolaMundo
+> Hola Mundo
+
+# no poner la extension
 java HolaMundo.class
 #Error: no se ha encontrado o cargado la clase principal 
-
-# Se ejecuta asi
-#java HolaMundo
-> Hola Mundo
 ```
 
-Vemos que al ejecutarlo `java HolaMundo` se imprime la salida por consola, normalmente tenemos una clase principal que depende de otras clases por lo que no es una formas practica de ejecutarlo, necesitariamos empaquetar todos los compilados 
+Vemos que al ejecutar `java HolaMundo` se imprime la salida por consola, normalmente tenemos una clase principal que depende de otras clases por lo que no es una formas practica de ejecutarlo, ya que tendriamos que nombrar cada una de las classes para poderlo ejecutarlo. Necesitariamos empaquetar todos los compilados dentro de un mismo archivo jar.
 
 ```
 jar cvf hola.jar HolaMundo.class
@@ -107,18 +105,20 @@ jar cvf hola.jar HolaMundo.class
 ```
 Ahora nos ha empaquetado la clase en el archivo hola.jar que podria contener todas las clases necesarias y se podria ejecutar.
 
-
 #ejecutar paquete  (sin classpath en el manifest)
 ```
 java hola.jar
 > Error: no se ha encontrado o cargado la clase principal hola.jar
 
+# El flag `-cp` se refiere a classpath
 java -cp hola.jar HolaMundo
 > Hola Mundo
 ```
-Con esto ejecutamos nuestra aplicacion empaquetada. El comando `java hola.jar` funcionaria si hubieramos definido el classpath en el manifest. El classpath le dice a java cual es la clase principal que tiene que ejecutar.
+Con esto ejecutamos nuestra aplicacion empaquetada. El comando `java hola.jar` se funcionaria si hubieramos definido la clase main en el manifest. La clase main le dice a java cual es la clase principal que tiene que ejecutar.
 
-Una aplicación normal tiene decenas de clases y le sería imposible a java ejecutarlo por esto es obligatorio decimos la clase principal o classpath, entonces tenemos que añadirle el classpath con el comando `java -classpath hola.jar HolaMundo` o de forma contraida `java -cp hola.jar HolaMundo`
+Una aplicación normal tiene decenas de clases que definimos en el classpath para que ha la hora de la compilacion pueda encontrar todas las librerias y herramientas. 
+
+El comando del ejemplo, también puede ser escrito sin contraer `java -classpath hola.jar HolaMundo`. Por ejemplo, si se hiciera uso del jdbc para conectarmos a la base de datos de MariaDB, la añadiriamos al classpath `java -cp hola.jar;mariadb-java-client-3.0.8.jar HolaMundo` para que encuentra las clases en la compilación.
 
 
 ## 1.2 Descompilar clase del paquete hola.jar
