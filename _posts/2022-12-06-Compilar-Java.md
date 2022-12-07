@@ -272,8 +272,6 @@ Class-Path: ./lib/impresion.jar
 ```
 
 
-
-
 ```
 #comprobamos que tenemos los compilados
 javac org/blogruben/prueba/HolaMundo.java org/blogruben/prueba/AdiosMundo.java
@@ -300,6 +298,4 @@ java -jar saludos.jar
 
 Este post esta basado en la
 [documentación oficial](https://docs.oracle.com/javase/tutorial/deployment/jar/build.html) de compilar y empaquetar los fuentes de Java.
-
-
 
