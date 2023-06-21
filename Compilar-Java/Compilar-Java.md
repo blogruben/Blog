@@ -1,9 +1,5 @@
----
-layout: post
-title:  "Compilar con java"
-date:   2022-12-06
-categories: Saludos
----
+# Compilar con java
+
 ## Intro
 Vamos a ver las herramientas para compilar y empaquetar archivos de java que provee el JDK, y como funciona el classpath.
 Vamos aprender a compilar nuestras aplicaciones en Java desde la consola de manera básica sin necesidad de usar ningún IDE ni ningún gestor de librerías, cuando nuestro desarrollo va ganado en complejidad este metodo se vuelve impracticable, sin embarjo es un buen ejercicio para conocer el funcionamiento de las herramientas de dessarrollo de Java a bajo nivel.
@@ -16,11 +12,11 @@ Por otro lado el Java Development Kit (JDK) esta pensado para el desarrollo de a
 Aunque actualmente ya estamos por la versión 18 de Java, vamos a usar el JDK 8 que a nivel empresarial aún se sigue usando ya que Oracle mantiene una licencia menos restrictiva. 
 Para ello, podemos descargar el [JDK de Oracle](https://www.oracle.com/java/technologies/downloads/) o el [OpenJDK](https://openjdk.org/projects/jdk8/) y añadirlo al path en Windows, para ello puedes encontrar muchos tutoriales en internet como por ejemplo [este](https://www.aprenderaprogramar.com/index.php?option=com_content&view=article&id=389:configurar-java-en-windows-variables-de-entorno-javahome-y-path-cu00610b&catid=68&Itemid=188)
 
-![inicar-consola](/img/Compilar-Java/01-01-inicar-consola.png)
+![inicar-consola](img/01-01-inicar-consola.png)
 
 Comprobamos que tenemos instalado el JDK en Windows. Para ello, buscando "cmd" o "Símbolo del sistema" en el buscador de Windows para abrir la consola y ejecutamos ``java -version`` para saber que el path del sistema apunta a la instalación de Java.
 
-![inicar-consola](/img/Compilar-Java/01-02-inicar-consola.png)
+![inicar-consola](img/01-02-inicar-consola.png)
 
 También es conveniente comprobar el comando `jar` (Java Archive Tool) que sirve para empaquetar varios archivos java.
 ```
@@ -61,7 +57,7 @@ Para ello podemos hacerlo gráficamente:
 
 Ya que vamos a usar la consola  para esta práctica, podemos crear el archivo desde el `cmd` así:
 
-![crear-archivo](/img/Compilar-Java/02-01-crear-archivo.png)
+![crear-archivo](img/02-01-crear-archivo.png)
 
 1. `more >> HolaMundo.java` para guardar lo que escribamos en el archivo
 2. Pegamos el contenido
@@ -78,7 +74,7 @@ public class HolaMundo {
 "@
  Add-Content "HolaMundo.java" $claseHolaMundo
 ```
-![crear-archivo](/img/Compilar-Java/02-02-crear-archivo.png)
+![crear-archivo](img/02-02-crear-archivo.png)
 
 Nota: Podemos acceder al interprete de powershell desde la misma cmd  escribiendo comando el ``powershell``.
 

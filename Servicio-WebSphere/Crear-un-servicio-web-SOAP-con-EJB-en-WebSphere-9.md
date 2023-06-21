@@ -1,10 +1,7 @@
----
-layout: post
-title:  "Crear un servicio web SOAP con EJB en WebSphere 9"
-date:   2022-07-06
-categories: Saludos
----
-# Servicio web SOAP con EJB y WebSphere
+# Crear un servicio web SOAP con EJB en WebSphere 9
+
+
+## Servicio web SOAP con EJB y WebSphere
 
 En el este post, vamos a definir y desplegar un servicio web de Hola Mundo, que 
 cuando le pasemos nuestro nombre, nos saludo.
@@ -33,54 +30,54 @@ la etiqueta @WebService para que sea un servicio web.
 
 
 
-# Crear un Servicio
+## Crear un Servicio
 
 Abrimos el Rational Software Archtect, en adelante RSA
 nos aparece una ventana para configurar el WAS. Para esta
 practica vamos a usar WAS 9 y asi que no necesitamos WAS 8.5
 
-![Imagen](/img/Servicio-WebSphere/01-01-dar-alta-servidor-WAS9.png)
+![Imagen](img/01-01-dar-alta-servidor-WAS9.png)
 
 En la siguiente pantalla desmarcamos e
 
-![Imagen](/img/Servicio-WebSphere/01-02-dar-alta-servidor-WAS9.png)
+![Imagen](img/01-02-dar-alta-servidor-WAS9.png)
 Proyecto web dinamico
 
-![Imagen](/img/Servicio-WebSphere/02-01-rsa-perpectiva-de-java-ee.png)
-![Imagen](/img/Servicio-WebSphere/02-02-rsa-perpectiva-de-java-ee.png)
-![Imagen](/img/Servicio-WebSphere/03-01-crear-perfil.png)
-![Imagen](/img/Servicio-WebSphere/04-01-crear-proyecto-web.png)
-![Imagen](/img/Servicio-WebSphere/04-02-crear-proyecto-web.png)
-![Imagen](/img/Servicio-WebSphere/04-03-crear-proyecto-web.png)
-![Imagen](/img/Servicio-WebSphere/04-04-crear-proyecto-web.png)
+![Imagen](img/02-01-rsa-perpectiva-de-java-ee.png)
+![Imagen](img/02-02-rsa-perpectiva-de-java-ee.png)
+![Imagen](img/03-01-crear-perfil.png)
+![Imagen](img/04-01-crear-proyecto-web.png)
+![Imagen](img/04-02-crear-proyecto-web.png)
+![Imagen](img/04-03-crear-proyecto-web.png)
+![Imagen](img/04-04-crear-proyecto-web.png)
 
 xxxxxx
 
-![Imagen](/img/Servicio-WebSphere/05-01-iniciar-servidor.png)
-![Imagen](/img/Servicio-WebSphere/05-02-iniciar-servidor.png)
-![Imagen](/img/Servicio-WebSphere/05-03-iniciar-servidor.png)
-![Imagen](/img/Servicio-WebSphere/05-04-iniciar-servidor.png)
+![Imagen](img/05-01-iniciar-servidor.png)
+![Imagen](img/05-02-iniciar-servidor.png)
+![Imagen](img/05-03-iniciar-servidor.png)
+![Imagen](img/05-04-iniciar-servidor.png)
 
 
 
-# Ruta WSDL
+## Ruta WSDL
 
-## Buscar url del wsdl en el wsdl
+### Buscar url del wsdl en el wsdl
 http://localhost:9080/HolaMundo_WAR/x?wsdl
 
-## Buscar url del wsdl en el wsdl
+### Buscar url del wsdl en el wsdl
 
-## Buscar url del wsdl en el rsa
-
-
-
-# Consultar con el  RSA
+### Buscar url del wsdl en el rsa
 
 
-# Consultar con el SoapUI
+
+## Consultar con el  RSA
 
 
-# Crear Cliente 
+## Consultar con el SoapUI
 
 
-# Testear servicio
+## Crear Cliente 
+
+
+## Testear servicio
